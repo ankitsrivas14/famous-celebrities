@@ -1,21 +1,29 @@
 import './Collapsible.css'
 import CaretIcon from '../../assets/icons/caret.svg'
 
+interface CollapsibleProps {
+  children: React.ReactNode;
+  isOpen: boolean;
+  id: number;
+  picture: string;
+  onClick: (id: number) => void;
+}
 
-const Collapsible = ({children}) => {
+
+const Collapsible = (props: CollapsibleProps) => {
+
+  const { children, isOpen, onClick, id, picture} = props;
+
   return (
     <div className='collapsible-wrapper'>
-      <div className='header'>
+      <div className='header' onClick={() => onClick(id)}>
         <div className='header-info'>
-            <img
-              className='header-image' 
-              src="https://images.pexels.com/photos/12592489/pexels-photo-12592489.png?auto=compress&cs=tinysrgb&w=300" 
-              alt="collapsible-image" 
-            />
-          <div className='header-text'
-        >
-          John Doe
-        </div>
+          <img
+            className='header-image' 
+            src={picture} 
+            alt="collapsible-image" 
+          />
+          <div className='header-text'>John Doe</div>
         </div>
         <img 
           className='header-icon' 
@@ -23,9 +31,9 @@ const Collapsible = ({children}) => {
           alt="caret-icon" 
         />
       </div>
-      <div className='content'>
+      {isOpen && <div className='content'>
         {children}
-      </div>
+      </div>}
     </div>
   );
 };

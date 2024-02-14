@@ -4,6 +4,11 @@ import PencilIcon from '../../../assets/icons/pencil.svg'
 import Input from '../../../design-system/Input/Input';
 import { useState } from 'react';
 import Select from '../../../design-system/Select/Select';
+import Textarea from '../../../design-system/Textarea/Textarea';
+
+interface CelebrityInfoProps {
+    description: string;
+}
 
 const GenderOptions = [
     {value: 'na', label: 'Rather not say'},
@@ -11,7 +16,8 @@ const GenderOptions = [
     {value: 'female', label: 'Female'},
 ]
 
-const CelebrityInfo = () => {
+const CelebrityInfo = (props: CelebrityInfoProps) => {
+    const { description } = props;
     const [isActive, setIsActive] = useState(false);
     return (
         <div className="celebrity-info">
@@ -47,8 +53,11 @@ const CelebrityInfo = () => {
             <div className='content'>
                 <div className='label'>Description</div>
                 <div className='description'>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur debitis itaque excepturi atque nisi id, fuga a ducimus ullam, placeat tenetur ad sed, possimus minus magnam? Ipsum culpa dolor quis?
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt provident dolores sapiente quibusdam nihil accusamus quaerat nostrum, quis eaque at deleniti totam aliquam maxime! Iure tenetur nisi quae delectus officiis.
+                    {isActive ? (
+                        <Textarea value={description} onChange={() => {}} />
+                    ) : (
+                        <span>{description}</span>
+                    )}
                 </div>
             </div>
             <div className='footer'>

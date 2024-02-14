@@ -1,0 +1,40 @@
+.celebrity-info{
+    font-weight: 400;
+    font-size: 18px;
+}
+
+.celebrity-info .header{
+    font-weight: 400;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.celebrity-info .header-content{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.celebrity-info .label{
+    font-size: 20px;
+    color: #8B8B8D;
+}
+
+.celebrity-info .content{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 30px;
+}
+
+.celebrity-info .footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 30px;
+}
+.celebrity-info .footer img{
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
